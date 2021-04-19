@@ -3,6 +3,7 @@ const db = require('./db/connection');
 
 
 const promptUser = () => {
+  console.clear();
     return inquirer.prompt([
     {
       type: 'list',
@@ -44,6 +45,7 @@ const promptUser = () => {
       if (err) {
           throw err;
       }
+      console.clear();
       console.log('')
       
       console.table(res);
@@ -63,6 +65,7 @@ const viewAllRoles = () => {
       if (err) {
         throw err;
       }
+      console.clear();
       console.log('')
       console.table(res);
     })
@@ -85,6 +88,7 @@ const viewAllEmployees = () => {
           if (err) {
             throw err;
           }
+          console.clear();
           console.log('')
           console.table(res);
         })
@@ -113,6 +117,7 @@ const viewAllEmployees = () => {
         if (err) {
           throw err;
         }
+        console.clear();
         console.log(`
 
         Success! ${body.name} has been added.
@@ -156,12 +161,14 @@ const viewAllEmployees = () => {
         if (err) {
           throw err;
         }
+        console.clear();
         console.log(`
         
         Success! ${body.title} has been added.
         
         `);
       })
+      promptUser();
     })
   };
 
@@ -201,12 +208,14 @@ const viewAllEmployees = () => {
         if (err) {
           throw err;
         }
+        console.clear();
         console.log(`
         
         Success! ${body.first_name} ${body.last_name} has been added.
         
         `);
       })
+      promptUser();
     })
   }
 
@@ -236,16 +245,15 @@ const viewAllEmployees = () => {
         if (err) {
           throw err;
         }
+        console.clear();
         console.log(`
         
         Success! Employee role has been updated.
         
         `);
       })
+      promptUser();
     })
   }
 
-
-  
-  
-  promptUser();
+promptUser();
